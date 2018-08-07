@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $page = "kebutuhanobat";
 
@@ -18,26 +18,26 @@ $no = 1;
 ?>
 
 <table>
-<tr>
-<th>No.</th>
-<th>Kode Obat</th>
-<th>Nama Obat</th>
-<th>Jumlah Kebutuhan</th>
-<th>Aksi</th>
-</tr>
-<?php
-foreach($data as $row){
-?>
-<tr>
-<td><?php echo $no++; ?></td>
-<td><?php echo $row['kode_obat']; ?></td>
-<td><?php echo $row['nama_obat']; ?></td>
-<td><?php echo $row['jumlah_kebutuhan']; ?></td>
-<td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
-</tr>
-<?php
-}
-?>
+  <tr>
+    <th>No.</th>
+    <th>Kode Obat</th>
+    <th>Nama Obat</th>
+    <th>Jumlah Kebutuhan</th>
+    <th>Aksi</th>
+  </tr>
+  <?php
+  foreach($data as $row){
+    ?>
+    <tr>
+      <td><?php echo $no++; ?></td>
+      <td><?php echo $row['kode_obat']; ?></td>
+      <td><?php echo $row['nama_obat']; ?></td>
+      <td><?php echo $row['jumlah_kebutuhan']; ?></td>
+      <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
+    </tr>
+    <?php
+  }
+  ?>
 
 
 </table>

@@ -7,9 +7,6 @@ if($_SESSION['status'] != "login"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="javascript.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Apotek XYZ</title>
@@ -39,7 +36,7 @@ if($_SESSION['status'] != "login"){
 <a <?php if(@$page == "pemusnahan"){echo 'class="active"';} ?> href="pemusnahan.php">Data Pemusnahan Obat</a>
 </li>
 <?php
-            break;
+        break;
         case 'staf':
         ?>
         <li>

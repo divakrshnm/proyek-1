@@ -34,6 +34,6 @@ class Database{
     $query = $this->conn->query($sql);
     return $query->fetch_all(MYSQLI_BOTH);
     echo $sql;
-  }  
+  }
 }
- ?>
+?>

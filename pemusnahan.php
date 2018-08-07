@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $page = "pemusnahan";
 
@@ -34,79 +34,79 @@ $no = 1;
 <button onclick="functionHide()" class="button">Tambah Pemusnahan</button>
 
 <div class="container">
-<form action="" method="post" id="form" style="display:none; border-radius: 5px; background-color: #f2f2f2; padding: 20px; margin-top: 18px;">
-No. Pengadaan <input type="text" name="no_pengadaan">
-Tanggal Pemusnahan<input type="date" name="kode_pemusnahan">
+  <form action="" method="post" id="form" style="display:none; border-radius: 5px; background-color: #f2f2f2; padding: 20px; margin-top: 18px;">
+    No. Pengadaan <input type="text" name="no_pengadaan">
+    Tanggal Pemusnahan<input type="date" name="kode_pemusnahan">
+
+    <table>
+      <tr>
+        <th>No.</th>
+        <th>Nama Obat</th>
+        <th>Jumlah Obat Kadaluarsa</th>
+        <th>Tanggal Obat Kadaluarsa</th>
+        <th>Aksi</th>
+      </tr>
+      <?php
+      foreach($datad as $row){
+        ?>
+        <tr>
+          <td><?php echo $no++; ?></td>
+          <td><?php echo $row['nama_obat']; ?></td>
+          <td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
+          <td><?php echo date("d-m-Y", strtotime($row['tanggal_kadaluarsa'])); ?></td>
+          <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
+        </tr>
+        <?php
+      }
+      ?>
+
+      <form action="">
+        <div id="itemlist">
+          <tr>
+            <td><?php echo $no++; ?></td>
+            <td class="container"><input type="text" name="kode_obat[0]"></td>
+            <td class="container"><input type="text" name="jumlah_obat[0]"></td>
+            <td class="container"><input type="date" name="tanggal_kadaluarsa[0]"></td>
+            <td></td>
+          </tr>
+        </div>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button onclick="tambahItem(); return false" class="button">Tambah</button>&nbsp;<input type="submit" value="Simpan" class="button"></td>
+        </tr>
+      </form>
+    </table>
+  </form>
+</div>
 
 <table>
-<tr>
-<th>No.</th>
-<th>Nama Obat</th>
-<th>Jumlah Obat Kadaluarsa</th>
-<th>Tanggal Obat Kadaluarsa</th>
-<th>Aksi</th>
-</tr>
-<?php
-foreach($datad as $row){
-?>
-<tr>
-<td><?php echo $no++; ?></td>
-<td><?php echo $row['nama_obat']; ?></td>
-<td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
-<td><?php echo date("d-m-Y", strtotime($row['tanggal_kadaluarsa'])); ?></td>
-<td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
-</tr>
-<?php
-}
-?>
-
-<form action="">
-<div id="itemlist">
+  <thead>
     <tr>
+      <th>No.</th>
+      <th>Nama Obat</th>
+      <th>Jumlah Obat Kadaluarsa</th>
+      <th>Tanggal Pengajuan</th>
+      <th>Petugas</th>
+      <th>Aksi</th>
+    </tr>
+    <?php
+    $no = 1;
+    foreach($data as $row){
+      ?>
+      <tr>
         <td><?php echo $no++; ?></td>
-        <td class="container"><input type="text" name="kode_obat[0]"></td>
-        <td class="container"><input type="text" name="jumlah_obat[0]"></td>
-        <td class="container"><input type="date" name="tanggal_kadaluarsa[0]"></td>
-        <td></td>
-    </tr>
-</div>
-   
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button onclick="tambahItem(); return false" class="button">Tambah</button>&nbsp;<input type="submit" value="Simpan" class="button"></td>
-    </tr>
-    </form>
-</table>
-</form>
-</div>
-
-<table>
-<thead>
-<tr>
-<th>No.</th>
-<th>Nama Obat</th>
-<th>Jumlah Obat Kadaluarsa</th>
-<th>Tanggal Pengajuan</th>
-<th>Petugas</th>
-<th>Aksi</th>
-</tr>
-<?php
-$no = 1;
-foreach($data as $row){
-?>
-<tr>
-<td><?php echo $no++; ?></td>
-<td><?php echo $row['nama_obat']; ?></td>
-<td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
-<td><?php echo date("d-m-Y", strtotime($row['tanggal_pengajuan'])); ?></td>
-<td><?php echo $row['nama_lengkap']; ?></td>
-<td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
-</tr>
-<?php
-}
-?>
-</table>
-<?php include_once('footer.php');?>
+        <td><?php echo $row['nama_obat']; ?></td>
+        <td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
+        <td><?php echo date("d-m-Y", strtotime($row['tanggal_pengajuan'])); ?></td>
+        <td><?php echo $row['nama_lengkap']; ?></td>
+        <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
+      </tr>
+      <?php
+    }
+    ?>
+  </table>
+  <?php include_once('footer.php');?>
