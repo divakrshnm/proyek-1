@@ -6,14 +6,13 @@ include_once('header.php');
 include_once('database.php');
 $db = new Database();
 
-$datap = $db->read("pengadaan_obat");
-$datas = $db->read("supplier");
+$datas = $db->read("*", "supplier");
 
 $join = 'INNER JOIN obat ON daftar_kebutuhan_obat.kode_obat = obat.kode_obat';
 
 $collums = 'obat.nama_obat, daftar_kebutuhan_obat.jumlah_kebutuhan';
 
-$datad = $db->readJoin($collums, 'daftar_kebutuhan_obat', null, $join);
+$datad = $db->read($collums, 'daftar_kebutuhan_obat', null, $join);
 
 $join = '
 INNER JOIN supplier ON pengadaan_obat.kode_supplier = supplier.kode_supplier
@@ -24,7 +23,7 @@ INNER JOIN obat ON detail_pengadaan_obat.kode_obat = obat.kode_obat
 
 $collums = 'petugas.nama_lengkap, supplier.nama_supplier, pengadaan_obat.tanggal_pesan, detail_pengadaan_obat.jumlah_kebutuhan, obat.nama_obat';
 
-$dataj = $db->readJoin($collums ,'pengadaan_obat', null, $join);
+$dataj = $db->read($collums ,'pengadaan_obat', null, $join);
 $no = 1;
 ?>
 
@@ -105,7 +104,7 @@ foreach($dataj as $row){
 <td><?php echo $no++; ?></td>
 <td><?php echo $row['nama_obat']; ?></td>
 <td><?php echo $row['jumlah_kebutuhan']; ?></td>
-<td><?php echo $row['tanggal_pesan']; ?></td>
+<td><?php echo date("d-m-Y", strtotime($row['tanggal_pesan'])); ?></td>
 <td><?php echo $row['nama_lengkap']; ?></td>
 <td><?php echo $row['nama_supplier']; ?></td>
 <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>

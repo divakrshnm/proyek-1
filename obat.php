@@ -14,7 +14,7 @@ LEFT JOIN obat_masuk ON detail_obat_masuk.no_masuk = obat_masuk.no_masuk
 
 $collums = 'obat_masuk.tanggal_masuk, detail_obat_masuk.tanggal_kadaluarsa, detail_obat_masuk.jumlah_masuk, detail_obat_masuk.no_masuk, obat.kode_obat, obat.nama_obat, obat.harga_jual, obat.jumlah_obat, obat.stok_minimal';
 
-$data = $db->readJoin($collums ,'obat', null, $join);
+$data = $db->read($collums ,'obat', null, $join);
 $no = 1;
 ?>
 
@@ -49,8 +49,8 @@ foreach($data as $row){
 <td><?php echo $row['nama_obat']; ?></td>
 <td><?php echo $row['harga_jual']; ?></td>
 <td><?php if(isset($row['jumlah_masuk'])){echo $row['jumlah_masuk'];}else{ echo "-";} ?></td>
-<td><?php if(isset($row['tanggal_masuk'])){echo $row['tanggal_masuk'];}else{ echo "-";} ?></td>
-<td><?php if(isset($row['tanggal_kadaluarsa'])){echo $row['tanggal_kadaluarsa'];}else{ echo "-";} ?></td>
+<td><?php if(isset($row['tanggal_masuk'])){echo date("d-m-Y", strtotime($row['tanggal_masuk']));}else{ echo "-";} ?></td>
+<td><?php if(isset($row['tanggal_kadaluarsa'])){echo date("d-m-Y", strtotime($row['tanggal_kadaluarsa']));}else{ echo "-";} ?></td>
 <td><input type="checkbox" name="kadaluarsa"></td>
 <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
 </tr>

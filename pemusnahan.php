@@ -16,7 +16,7 @@ ORDER BY detail_obat_masuk.tanggal_kadaluarsa DESC LIMIT 1;
 
 $collums = 'daftar_obat_kadaluarsa.jumlah_obat_kadaluarsa, obat.nama_obat, detail_obat_masuk.tanggal_kadaluarsa';
 
-$datad = $db->readJoin($collums ,'daftar_obat_kadaluarsa', null, $join);
+$datad = $db->read($collums ,'daftar_obat_kadaluarsa', null, $join);
 
 $join = '
 INNER JOIN detail_pemusnahan_obat ON pemusnahan_obat.no_pemusnahan = detail_pemusnahan_obat.no_pemusnahan
@@ -26,7 +26,7 @@ INNER JOIN obat ON detail_pemusnahan_obat.kode_obat = obat.kode_obat
 
 $collums = 'obat.nama_obat, detail_pemusnahan_obat.jumlah_obat_kadaluarsa, petugas.nama_lengkap, pemusnahan_obat.tanggal_pengajuan';
 
-$data = $db->readJoin($collums ,'pemusnahan_obat', null, $join);
+$data = $db->read($collums ,'pemusnahan_obat', null, $join);
 
 $no = 1;
 ?>
@@ -53,7 +53,7 @@ foreach($datad as $row){
 <td><?php echo $no++; ?></td>
 <td><?php echo $row['nama_obat']; ?></td>
 <td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
-<td><?php echo $row['tanggal_kadaluarsa']; ?></td>
+<td><?php echo date("d-m-Y", strtotime($row['tanggal_kadaluarsa'])); ?></td>
 <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
 </tr>
 <?php
@@ -101,7 +101,7 @@ foreach($data as $row){
 <td><?php echo $no++; ?></td>
 <td><?php echo $row['nama_obat']; ?></td>
 <td><?php echo $row['jumlah_obat_kadaluarsa']; ?></td>
-<td><?php echo $row['tanggal_pengajuan']; ?></td>
+<td><?php echo date("d-m-Y", strtotime($row['tanggal_pengajuan'])); ?></td>
 <td><?php echo $row['nama_lengkap']; ?></td>
 <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
 </tr>

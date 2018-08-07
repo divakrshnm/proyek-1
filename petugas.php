@@ -5,7 +5,7 @@ include_once('header.php');
 include_once('database.php');
 $db = new Database();
 
-$data = $db->read("petugas");
+$data = $db->read("*", "petugas");
 $no = 1;
 ?>
 
@@ -46,7 +46,7 @@ foreach($data as $row){
 <tr>
 <td><?php echo $no++; ?></td>
 <td><?php echo $row['nama_lengkap']; ?></td>
-<td><?php echo $row['tanggal_lahir']; ?></td>
+<td><?php echo date("d-m-Y", strtotime($row['tanggal_lahir'])); ?></td>
 <td><?php echo $row['alamat']; ?></td>
 <td><?php echo $row['no_telepon']; ?></td>
 <td><?php echo $row['akses_level']; ?></td>

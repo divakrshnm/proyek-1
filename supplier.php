@@ -6,7 +6,7 @@ include_once('header.php');
 include_once('database.php');
 $db = new Database();
 
-$data = $db->read("supplier");
+$data = $db->read("*", "supplier");
 $no = 1;
 ?>
 

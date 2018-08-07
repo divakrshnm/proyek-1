@@ -12,7 +12,7 @@ INNER JOIN obat ON daftar_kebutuhan_obat.kode_obat = obat.kode_obat
 
 $collums = 'daftar_kebutuhan_obat.jumlah_kebutuhan, obat.kode_obat, obat.nama_obat';
 
-$data = $db->readJoin($collums ,'daftar_kebutuhan_obat', null, $join);
+$data = $db->read($collums ,'daftar_kebutuhan_obat', null, $join);
 
 $no = 1;
 ?>

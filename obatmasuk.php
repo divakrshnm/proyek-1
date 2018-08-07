@@ -13,7 +13,7 @@ INNER JOIN obat ON detail_obat_masuk.kode_obat = obat.kode_obat
 
 $collums = 'obat.nama_obat, detail_obat_masuk.jumlah_masuk, obat_masuk.tanggal_masuk';
 
-$data = $db->readJoin($collums ,'obat_masuk', null, $join);
+$data = $db->read($collums ,'obat_masuk', null, $join);
 
 $no = 1;
 ?>
@@ -72,7 +72,7 @@ foreach($data as $row){
 <td><?php echo $no++; ?></td>
 <td><?php echo $row['nama_obat']; ?></td>
 <td><?php echo $row['jumlah_masuk']; ?></td>
-<td><?php echo $row['tanggal_masuk']; ?></td>
+<td><?php echo date("d-m-Y", strtotime($row['tanggal_masuk'])); ?></td>
 <td><a href="">Ubah</a>&nbsp;<a href="">Hapus</a></td>
 </tr>
 <?php

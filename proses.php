@@ -11,7 +11,7 @@ switch ($proses) {
         $result = $db->login("petugas", "username = '$username' && password = '$password'");
         if($result > 0){
             session_start();
-            $data = $db->read("petugas", "username = '$username' && password = '$password'");
+            $data = $db->read("*", "petugas", "username = '$username' && password = '$password'");
             $_SESSION['nama_lengkap'] = $data[0]['nama_lengkap'];
             $_SESSION['akses_level'] = $data[0]['akses_level'];
             $_SESSION['status'] = "login";
