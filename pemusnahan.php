@@ -83,6 +83,13 @@ $no = 1;
   </form>
 </div>
 
+<div class="container">
+  <form action="#" method="post" style="float:right; width:410px;">
+    <input type="text" name="tanggal_kadaluarsa" style="float:left; width:300px;">
+    <input type="submit" value="Cari Data" style="margin-left:6px; margin-top:6px; font-size:15px;">
+  </form>
+</div>
+
 <table>
   <thead>
     <tr>

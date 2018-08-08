@@ -14,8 +14,8 @@ if($_SESSION['status'] != "login"){
 <body>
 
 <ul class="header">
-  <li><img src="apotek.png" style="height: 60px; width:60px;"></li>
-  <li style="font-size:40px; font-weight: bold; color: #FFFFFF; padding:6px">SISTEM INFORMASI APOTEK</li>
+  <li><img src="apotek.png" style="height: 60px; width:60px; margin-left:-10px;"></li>
+  <li style="font-size:30px; font-weight: bold; color: #FFFFFF; padding:8px">SISTEM INFORMASI PERSEDIAAN OBAT</li>
 </ul>
 
 <ul class="menu">
